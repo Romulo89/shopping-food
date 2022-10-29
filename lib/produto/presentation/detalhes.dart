@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_food/shared/double_extensions.dart';
 
 import '../../carrinho/presentation/atalho.dart';
 import '../../restaurante/model.dart';
@@ -30,7 +31,7 @@ class ProdutoDetalhes extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(produto.nome),
-                  Text(produto.formatCalorias),
+                  Text(produto.preco.dinheiro),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Form(

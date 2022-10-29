@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_food/produto/presentation/detalhes.dart';
 import 'package:shopping_food/restaurante/model.dart';
+import 'package:shopping_food/shared/double_extensions.dart';
 
 import '../domain/produto.dart';
 
 class ProdutoListItem extends StatelessWidget {
-  const ProdutoListItem(
-      {Key? key, required this.produto, required this.restaurante})
+  const ProdutoListItem({Key? key, required this.produto, this.restaurante})
       : super(key: key);
-  final Restaurante restaurante;
+  final Restaurante? restaurante;
   final Produto produto;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class ProdutoListItem extends StatelessWidget {
                       textAlign: TextAlign.justify,
                     ),
                     Text(
-                      produto.formatPreco,
+                      produto.preco.dinheiro,
                       textAlign: TextAlign.right,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),

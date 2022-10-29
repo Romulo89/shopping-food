@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:shopping_food/auth/model/usuario.dart';
 import 'package:shopping_food/carrinho/presentation/detalhes.dart';
 import 'package:shopping_food/restaurante/application/listagem_store.dart';
-import 'package:shopping_food/restaurante/model.dart';
 import 'package:shopping_food/restaurante/presentation/detalhes.dart';
 import 'package:shopping_food/restaurante/presentation/listagem.dart';
 

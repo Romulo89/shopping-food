@@ -12,7 +12,4 @@ class Produto {
     required this.calorias,
     required this.image,
   });
-
-  String get formatCalorias => '$calorias kcal';
-  String get formatPreco => 'R\$${preco.toStringAsFixed(2)}';
 }
