@@ -5,9 +5,15 @@ import 'package:shopping_food/carrinho/domain/carrinho.dart';
 import '../../produto/presentation/carrinho_list_item.dart';
 import 'resumo.dart';
 
-class CarrinhoDetalhes extends StatelessWidget {
+class CarrinhoDetalhes extends StatefulWidget {
   const CarrinhoDetalhes({super.key});
   static const String route = '/Carrinho';
+
+  @override
+  State<CarrinhoDetalhes> createState() => _CarrinhoDetalhesState();
+}
+
+class _CarrinhoDetalhesState extends State<CarrinhoDetalhes> {
   @override
   Widget build(BuildContext context) {
     final carrinho = context.watch<Carrinho>();
@@ -20,17 +26,13 @@ class CarrinhoDetalhes extends StatelessWidget {
     );
     return Scaffold(
       appBar: AppBar(title: const Text('Carrinho')),
+      backgroundColor: const Color(0xFF595959),
       body: Container(
         constraints:
             BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
         child: SingleChildScrollView(
           child: Column(
-            children: produtos
-              ..add(
-                CarrinhoResumo(
-                  carrinho: carrinho,
-                ),
-              ),
+            children: produtos..add(const CarrinhoResumo()),
           ),
         ),
       ),

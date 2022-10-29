@@ -16,31 +16,40 @@ class ProdutoDetalhes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF595959),
       appBar: AppBar(
         title: Text(restaurante.nome),
         actions: const [CarrinhoIcon()],
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
+              margin: const EdgeInsets.fromLTRB(20, 15, 20, 10),
               child: Image.network(
                 produto.image,
               ),
             ),
             Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(produto.nome),
-                  Text(produto.preco.dinheiro),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Form(
+              margin: const EdgeInsets.fromLTRB(20, 10, 20, 60),
+              child: Container(
+                padding: const EdgeInsets.all(40),
+                constraints: const BoxConstraints(maxHeight: 300),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      produto.nome,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Text(produto.preco.dinheiro),
+                    Text(produto.descricao),
+                    Form(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          TextFormField(),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
@@ -56,8 +65,8 @@ class ProdutoDetalhes extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           ],

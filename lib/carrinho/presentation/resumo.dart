@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_food/carrinho/domain/carrinho.dart';
 import 'package:shopping_food/shared/double_extensions.dart';
 
 class CarrinhoResumo extends StatelessWidget {
-  const CarrinhoResumo({super.key, required this.carrinho});
-  final Carrinho carrinho;
+  const CarrinhoResumo({super.key});
   @override
   Widget build(BuildContext context) {
+    final carrinho = context.read<Carrinho>();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
