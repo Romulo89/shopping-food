@@ -8,27 +8,64 @@ class CarrinhoResumo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Subtotal'),
-              Text('R\$${carrinho.subtotal.toStringAsFixed(2)}'),
+              Text(
+                'Subtotal:',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
+              Text(
+                'R\$${carrinho.subtotal.toStringAsFixed(2)}',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Desconto'),
-              Text(carrinho.desconto.dinheiro),
+              Text(
+                'Desconto:',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
+              Text(
+                carrinho.desconto.dinheiro,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Total'),
-              Text(carrinho.total.dinheiro),
+              Text(
+                'Total:',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
+              Text(
+                carrinho.total.dinheiro,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
             ],
           ),
         ],
