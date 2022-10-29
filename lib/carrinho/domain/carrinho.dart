@@ -9,6 +9,24 @@ class Carrinho {
     this.desconto = 0,
   });
 
+  void adicionarProduto(Produto produto) {
+    try {
+      var existente = itens.firstWhere((element) => element.produto == produto);
+      existente.quantidade++;
+    } catch (_) {
+      itens.add(ItemCarrinho(quantidade: 1, produto: produto));
+    }
+  }
+
+  removerProduto(Produto produto) {
+    try {
+      var existente = itens.firstWhere((element) => element.produto == produto);
+      existente.quantidade--;
+    } catch (_) {
+      return;
+    }
+  }
+
   double get total => subtotal - (subtotal * desconto);
 
   double get subtotal {
