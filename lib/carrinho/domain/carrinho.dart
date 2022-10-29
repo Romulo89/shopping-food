@@ -21,7 +21,11 @@ class Carrinho {
   removerProduto(Produto produto) {
     try {
       var existente = itens.firstWhere((element) => element.produto == produto);
-      existente.quantidade--;
+      if (existente.quantidade > 1) {
+        existente.quantidade--;
+      } else {
+        itens.remove(existente);
+      }
     } catch (_) {
       return;
     }
