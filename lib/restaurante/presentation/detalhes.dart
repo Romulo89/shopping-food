@@ -24,7 +24,6 @@ class _RestauranteDetalhesState extends State<RestauranteDetalhes> {
         title: Text(widget.restaurante.nome),
         actions: const [CarrinhoIcon()],
       ),
-      backgroundColor: const Color(0xFF595959),
       body: FutureBuilder<List<Produto>>(
         future: widget.store.getProdutos(),
         builder: (context, snapshot) {

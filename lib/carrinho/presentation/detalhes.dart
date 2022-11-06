@@ -26,7 +26,6 @@ class _CarrinhoDetalhesState extends State<CarrinhoDetalhes> {
     );
     return Scaffold(
       appBar: AppBar(title: const Text('Carrinho')),
-      backgroundColor: const Color(0xFF595959),
       body: Container(
         constraints:
             BoxConstraints(maxHeight: MediaQuery.of(context).size.height),

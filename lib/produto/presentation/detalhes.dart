@@ -16,7 +16,6 @@ class ProdutoDetalhes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF595959),
       appBar: AppBar(
         title: Text(restaurante.nome),
         actions: const [CarrinhoIcon()],
