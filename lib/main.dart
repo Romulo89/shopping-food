@@ -11,6 +11,9 @@ import 'restaurante/application/detalhes_store.dart';
 import 'restaurante/application/listagem_store.dart';
 import 'restaurante/presentation/detalhes.dart';
 import 'restaurante/presentation/listagem.dart';
+import 'shopping/application/selecao_store.dart';
+import 'shopping/application/shopping_provider.dart';
+import 'shopping/presentation/selecao.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +28,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider(create: (_) => Usuario(login: '', senha: '')),
+        ChangeNotifierProvider<ShoppingProvider>(
+          create: (_) => ShoppingProvider(),
+        ),
         ChangeNotifierProvider<CarrinhoProvider>(
           create: (_) => CarrinhoProvider(
             Carrinho(itens: []),
@@ -58,6 +64,9 @@ class MyApp extends StatelessWidget {
                   restaurante: args['restaurante'],
                 ),
             CarrinhoDetalhes.route: (_) => const CarrinhoDetalhes(),
+            SelecaoShopping.route: (_) => SelecaoShopping(
+                  store: SelecaoShoppingStore(),
+                ),
           };
           final builder = routes[settings.name];
           if (builder == null) {

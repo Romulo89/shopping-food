@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_food/restaurante/presentation/listagem.dart';
 
+import '../../shopping/presentation/selecao.dart';
 import '../model/usuario.dart';
 
 class Login extends StatefulWidget {
@@ -97,6 +97,6 @@ class _LoginState extends State<Login> {
       return;
     }
     // TODO: testar no servidor
-    Navigator.of(context).pushReplacementNamed(RestauranteListagem.route);
+    Navigator.of(context).pushReplacementNamed(SelecaoShopping.route);
   }
 }

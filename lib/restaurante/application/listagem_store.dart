@@ -1,7 +1,10 @@
 import 'package:shopping_food/restaurante/model.dart';
 
+import '../../shopping/model/shopping.dart';
+
 class ListagemRestaurantesStore {
-  Future<List<Restaurante>> getRestaurantes() async {
+  Future<List<Restaurante>> getRestaurantes(Shopping shopping) async {
+    // TODO Busca no servidor
     await Future.delayed(const Duration(milliseconds: 2500));
     return [
       Restaurante(

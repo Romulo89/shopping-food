@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../carrinho/presentation/atalho.dart';
+import '../../shopping/application/shopping_provider.dart';
 import '../application/listagem_store.dart';
 import '../model.dart';
 import 'list_item.dart';
@@ -26,7 +28,8 @@ class _RestauranteListagemState extends State<RestauranteListagem> {
       backgroundColor: const Color(0xFF595959),
       body: Center(
         child: FutureBuilder<List<Restaurante>>(
-          future: widget.store.getRestaurantes(),
+          future: widget.store
+              .getRestaurantes(context.read<ShoppingProvider>().shop!),
           builder: (context, snapshot) {
             if (!snapshot.hasData || snapshot.data == null) {
               return const Center(
