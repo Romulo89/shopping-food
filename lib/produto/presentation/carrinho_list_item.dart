@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_food/carrinho/domain/carrinho.dart';
-import 'package:shopping_food/carrinho/presentation/quantidade_controll.dart';
-import 'package:shopping_food/shared/double_extensions.dart';
+import '../../carrinho/domain/carrinho.dart';
+import '../../carrinho/presentation/quantidade_controll.dart';
+import '../../shared/double_extensions.dart';
 
 class CarrinhoListItem extends StatelessWidget {
   const CarrinhoListItem({Key? key, required this.item}) : super(key: key);

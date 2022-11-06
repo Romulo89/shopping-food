@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_food/auth/model/usuario.dart';
-import 'package:shopping_food/carrinho/presentation/detalhes.dart';
-import 'package:shopping_food/restaurante/application/listagem_store.dart';
-import 'package:shopping_food/restaurante/presentation/detalhes.dart';
-import 'package:shopping_food/restaurante/presentation/listagem.dart';
 
+import 'auth/model/usuario.dart';
 import 'auth/presentation/login.dart';
+import 'carrinho/application/carrinho_provider.dart';
 import 'carrinho/domain/carrinho.dart';
+import 'carrinho/presentation/detalhes.dart';
 import 'produto/presentation/detalhes.dart';
 import 'restaurante/application/detalhes_store.dart';
+import 'restaurante/application/listagem_store.dart';
+import 'restaurante/presentation/detalhes.dart';
+import 'restaurante/presentation/listagem.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider(create: (_) => Usuario(login: '', senha: '')),
-        Provider(create: (_) => Carrinho(itens: [])),
+        ChangeNotifierProvider<CarrinhoProvider>(
+          create: (_) => CarrinhoProvider(
+            Carrinho(itens: []),
+          ),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

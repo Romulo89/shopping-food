@@ -2,6 +2,7 @@ import 'package:shopping_food/restaurante/model.dart';
 
 class ListagemRestaurantesStore {
   Future<List<Restaurante>> getRestaurantes() async {
+    await Future.delayed(const Duration(milliseconds: 2500));
     return [
       Restaurante(
           image:

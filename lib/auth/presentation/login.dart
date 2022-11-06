@@ -57,6 +57,7 @@ class _LoginState extends State<Login> {
                           validator: usuario.validateLogin,
                         ),
                         TextFormField(
+                          obscureText: true,
                           decoration: const InputDecoration(
                             label: Text('Senha'),
                             filled: true,

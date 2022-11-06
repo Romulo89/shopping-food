@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_food/shared/double_extensions.dart';
 
-import '../../carrinho/domain/carrinho.dart';
+import '../../carrinho/application/carrinho_provider.dart';
 import '../../carrinho/presentation/atalho.dart';
 import '../../restaurante/model.dart';
+import '../../shared/double_extensions.dart';
 import '../domain/produto.dart';
 
 class ProdutoDetalhes extends StatelessWidget {
@@ -58,7 +58,7 @@ class ProdutoDetalhes extends StatelessWidget {
                                 ),
                                 padding: const EdgeInsets.all(15)),
                             onPressed: () => context
-                                .read<Carrinho>()
+                                .read<CarrinhoProvider>()
                                 .adicionarProduto(produto),
                             child: const Text('Adicionar ao Carrinho'),
                           ),

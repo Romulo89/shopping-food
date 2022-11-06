@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_food/carrinho/domain/carrinho.dart';
 
 import '../../produto/presentation/carrinho_list_item.dart';
+import '../application/carrinho_provider.dart';
 import 'resumo.dart';
 
 class CarrinhoDetalhes extends StatefulWidget {
@@ -16,11 +16,11 @@ class CarrinhoDetalhes extends StatefulWidget {
 class _CarrinhoDetalhesState extends State<CarrinhoDetalhes> {
   @override
   Widget build(BuildContext context) {
-    final carrinho = context.watch<Carrinho>();
+    final carrinho = context.watch<CarrinhoProvider>();
     final produtos = List<Widget>.generate(
-      carrinho.itens.length,
+      carrinho.value.itens.length,
       (index) {
-        var item = carrinho.itens[index];
+        var item = carrinho.value.itens[index];
         return CarrinhoListItem(item: item);
       },
     );

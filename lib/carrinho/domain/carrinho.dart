@@ -9,6 +9,14 @@ class Carrinho {
     this.desconto = 0,
   });
 
+  get quantidadeTotal {
+    int sum = 0;
+    for (var element in itens) {
+      sum += element.quantidade;
+    }
+    return sum;
+  }
+
   void adicionarProduto(Produto produto) {
     try {
       var existente = itens.firstWhere((element) => element.produto == produto);

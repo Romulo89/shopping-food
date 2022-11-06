@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../carrinho/presentation/atalho.dart';
-import '../application/detalhes_store.dart';
 
+import '../../carrinho/presentation/atalho.dart';
 import '../../produto/domain/produto.dart';
 import '../../produto/presentation/list_item.dart';
+import '../application/detalhes_store.dart';
 import '../model.dart';
 
 class RestauranteDetalhes extends StatefulWidget {

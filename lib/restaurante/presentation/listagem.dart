@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_food/carrinho/presentation/atalho.dart';
-import 'package:shopping_food/restaurante/application/listagem_store.dart';
-import 'package:shopping_food/restaurante/presentation/list_item.dart';
 
+import '../../carrinho/presentation/atalho.dart';
+import '../application/listagem_store.dart';
 import '../model.dart';
+import 'list_item.dart';
 
 class RestauranteListagem extends StatefulWidget {
   const RestauranteListagem({super.key, required this.store});
@@ -21,6 +21,7 @@ class _RestauranteListagemState extends State<RestauranteListagem> {
       appBar: AppBar(
         title: const Text('Restaurantes'),
         actions: const [CarrinhoIcon()],
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: const Color(0xFF595959),
       body: Center(
