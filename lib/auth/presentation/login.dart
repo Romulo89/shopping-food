@@ -30,10 +30,16 @@ class _LoginState extends State<Login> {
           constraints: BoxConstraints(
             maxHeight: MediaQuery.of(context).size.height,
           ),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: ExactAssetImage('assets/images/inicio.png'),
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              // Image.network(''),
               const Spacer(),
               Expanded(
                 child: Padding(
