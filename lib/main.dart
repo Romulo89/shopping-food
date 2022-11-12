@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 
 import 'auth/model/usuario.dart';
 import 'auth/presentation/login.dart';
+import 'auth/presentation/registrar.dart';
 import 'carrinho/application/carrinho_provider.dart';
 import 'carrinho/domain/carrinho.dart';
 import 'carrinho/presentation/detalhes.dart';
 import 'produto/presentation/detalhes.dart';
 import 'restaurante/application/detalhes_store.dart';
 import 'restaurante/application/listagem_store.dart';
+import 'restaurante/model.dart';
 import 'restaurante/presentation/detalhes.dart';
 import 'restaurante/presentation/listagem.dart';
 import 'shopping/application/selecao_store.dart';
@@ -40,15 +42,28 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: const Color(0xFF393939),
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          ),
-        ),
+            primarySwatch: Colors.blue,
+            scaffoldBackgroundColor: const Color(0xFF393939),
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+            ),
+            bottomSheetTheme: const BottomSheetThemeData(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ))),
+            inputDecorationTheme: const InputDecorationTheme(
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.all(12),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+            )),
         initialRoute: Login.route,
         onGenerateRoute: (settings) {
           final args = settings.arguments as Map<String, dynamic>?;
@@ -67,12 +82,19 @@ class MyApp extends StatelessWidget {
             SelecaoShopping.route: (_) => SelecaoShopping(
                   store: SelecaoShoppingStore(),
                 ),
+            RegistrarTela.route: (_) => const RegistrarTela(),
           };
           final builder = routes[settings.name];
           if (builder == null) {
             return MaterialPageRoute(
-              builder: (context) => const Scaffold(
-                body: Center(child: Text('Nao Encontrado')),
+              builder: (context) => Scaffold(
+                body: Center(
+                    child: Text(
+                  'Nao Encontrado',
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        color: Colors.white,
+                      ),
+                )),
               ),
             );
           } else {

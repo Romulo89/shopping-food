@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../shopping/presentation/selecao.dart';
 import '../model/usuario.dart';
+import 'registrar.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -25,67 +26,70 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Form(
         key: formKey,
-        child: SingleChildScrollView(
-          child: Container(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // Image.network(''),
-                const SizedBox(height: 400),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(28),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            label: Text('Login'),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: EdgeInsets.all(12),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
-                            ),
-                          ),
-                          validator: usuario.validateLogin,
+        child: Container(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Image.network(''),
+              const Spacer(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(28),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      TextFormField(
+                        initialValue: usuario.login,
+                        validator: usuario.validateLogin,
+                        decoration: const InputDecoration(
+                          label: Text('Login'),
                         ),
-                        TextFormField(
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            label: Text('Senha'),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: EdgeInsets.all(12),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
-                            ),
-                          ),
-                          validator: usuario.validateSenha,
+                      ),
+                      TextFormField(
+                        obscureText: true,
+                        initialValue: usuario.senha,
+                        validator: usuario.validateSenha,
+                        decoration: const InputDecoration(
+                          label: Text('Senha'),
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            padding: const EdgeInsets.symmetric(vertical: 13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              padding: const EdgeInsets.symmetric(vertical: 13),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
                             ),
+                            onPressed: verifyLogin,
+                            child: const Text('Login'),
                           ),
-                          onPressed: verifyLogin,
-                          child: const Text('Login'),
-                        ),
-                      ],
-                    ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.grey.shade900,
+                              padding: const EdgeInsets.symmetric(vertical: 13),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            onPressed: () => Navigator.of(context)
+                                .pushReplacementNamed(RegistrarTela.route),
+                            child: const Text('Registrar'),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
