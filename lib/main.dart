@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'auth/model/usuario.dart';
 import 'auth/presentation/login.dart';
 import 'auth/presentation/registrar.dart';
@@ -17,7 +20,7 @@ import 'shopping/application/selecao_store.dart';
 import 'shopping/application/shopping_provider.dart';
 import 'shopping/presentation/selecao.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 
@@ -64,10 +67,10 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(15)),
               ),
             )),
-        initialRoute: Login.route,
         onGenerateRoute: (settings) {
           final args = settings.arguments as Map<String, dynamic>?;
           final routes = <String, WidgetBuilder>{
+            '/': (_) => const MainLoader(),
             Login.route: (_) => const Login(),
             RestauranteListagem.route: (_) =>
                 RestauranteListagem(store: ListagemRestaurantesStore()),
@@ -101,6 +104,42 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: builder);
           }
         },
+      ),
+    );
+  }
+}
+
+class MainLoader extends StatefulWidget {
+  const MainLoader({super.key});
+
+  @override
+  State<MainLoader> createState() => _MainLoaderState();
+}
+
+class _MainLoaderState extends State<MainLoader> {
+  bool loaded = false;
+  @override
+  void initState() {
+    super.initState();
+
+    Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    ).then((value) => setState(() => loaded = true));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (loaded) {
+      Future.microtask(
+        () => Navigator.of(context).pushReplacementNamed(Login.route),
+      );
+    }
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: CircularProgressIndicator(
+          color: Colors.black,
+        ),
       ),
     );
   }
