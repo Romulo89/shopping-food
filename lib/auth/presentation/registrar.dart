@@ -56,9 +56,6 @@ class _RegistrarTelaState extends State<RegistrarTela> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                   padding: const EdgeInsets.symmetric(vertical: 13),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
                 ),
                 onPressed: verifyRegister,
                 child: const Text('Registrar'),

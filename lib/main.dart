@@ -59,6 +59,19 @@ class MyApp extends StatelessWidget {
               topLeft: Radius.circular(15),
               topRight: Radius.circular(15),
             ))),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                shape: MaterialStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+            ),
+            cardTheme: CardTheme(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+            ),
             inputDecorationTheme: const InputDecorationTheme(
               filled: true,
               fillColor: Colors.white,

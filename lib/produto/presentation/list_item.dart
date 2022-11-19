@@ -21,7 +21,6 @@ class ProdutoListItem extends StatelessWidget {
         },
       ),
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         margin: const EdgeInsets.all(7),
         child: Row(
           children: [

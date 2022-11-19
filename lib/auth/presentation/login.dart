@@ -70,9 +70,6 @@ class _LoginState extends State<Login> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.red,
                               padding: const EdgeInsets.symmetric(vertical: 13),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
                             ),
                             onPressed: verifyLogin,
                             child: const Text('Login'),
@@ -81,9 +78,6 @@ class _LoginState extends State<Login> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.grey.shade900,
                               padding: const EdgeInsets.symmetric(vertical: 13),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
                             ),
                             onPressed: () => Navigator.of(context)
                                 .pushReplacementNamed(RegistrarTela.route),

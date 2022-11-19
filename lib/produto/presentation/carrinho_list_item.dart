@@ -9,7 +9,6 @@ class CarrinhoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       margin: const EdgeInsets.all(7),
       child: Row(
         children: [

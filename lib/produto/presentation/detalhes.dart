@@ -52,9 +52,6 @@ class ProdutoDetalhes extends StatelessWidget {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
                                 padding: const EdgeInsets.all(15)),
                             onPressed: () => context
                                 .read<CarrinhoProvider>()

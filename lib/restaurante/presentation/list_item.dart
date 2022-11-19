@@ -10,7 +10,6 @@ class ResaturanteListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           constraints: const BoxConstraints(maxHeight: 250),
           child: Image.network(restaurante.image),

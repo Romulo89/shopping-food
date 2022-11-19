@@ -30,7 +30,7 @@ class _SelecaoShoppingState extends State<SelecaoShopping> {
   Widget build(BuildContext context) {
     provider = context.read<ShoppingProvider>();
     return Scaffold(
-      appBar: AppBar(title: const Text('Sopping')),
+      appBar: AppBar(title: const Text('Shopping')),
       body: Form(
         key: formKey,
         child: Container(
