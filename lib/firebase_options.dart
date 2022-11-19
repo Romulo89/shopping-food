@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '260590538790',
     projectId: 'shopping-food-c36df',
     storageBucket: 'shopping-food-c36df.appspot.com',
-    iosClientId: '260590538790-o306bmj1vuvtju97v7satuvigt7dv8a9.apps.googleusercontent.com',
+    iosClientId:
+        '260590538790-o306bmj1vuvtju97v7satuvigt7dv8a9.apps.googleusercontent.com',
     iosBundleId: 'com.example.shoppingFood',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '260590538790',
     projectId: 'shopping-food-c36df',
     storageBucket: 'shopping-food-c36df.appspot.com',
-    iosClientId: '260590538790-o306bmj1vuvtju97v7satuvigt7dv8a9.apps.googleusercontent.com',
+    iosClientId:
+        '260590538790-o306bmj1vuvtju97v7satuvigt7dv8a9.apps.googleusercontent.com',
     iosBundleId: 'com.example.shoppingFood',
   );
 }
