@@ -31,7 +31,21 @@ class _CarrinhoDetalhesState extends State<CarrinhoDetalhes> {
             BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
         child: SingleChildScrollView(
           child: Column(
-            children: produtos..add(const CarrinhoResumo()),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: produtos
+              ..add(const CarrinhoResumo())
+              ..add(
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    onPressed: () => print('Finalizado'),
+                    child: const Text('Finalizar'),
+                  ),
+                ),
+              ),
           ),
         ),
       ),
