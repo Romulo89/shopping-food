@@ -25,15 +25,15 @@ class _RestauranteDetalhesState extends State<RestauranteDetalhes> {
         actions: const [CarrinhoIcon()],
       ),
       body: FutureBuilder<List<Produto>>(
-        future: widget.store.getProdutos(),
+        future: widget.store.getProdutos(widget.restaurante),
         builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text(snapshot.error.toString()));
+          }
           if (!snapshot.hasData) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          }
-          if (snapshot.hasError) {
-            return const Center(child: Text('erro'));
           }
           return ListView.builder(
             itemCount: snapshot.data!.length,
