@@ -31,13 +31,13 @@ class _RestauranteListagemState extends State<RestauranteListagem> {
           future: widget.store
               .getRestaurantes(context.read<ShoppingProvider>().shop!),
           builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(child: Text(snapshot.error.toString()));
+            }
             if (!snapshot.hasData || snapshot.data == null) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            }
-            if (snapshot.hasError) {
-              return const Center(child: Text('erro'));
             }
             return ListView.builder(
               itemCount: snapshot.data!.length,
