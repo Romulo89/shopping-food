@@ -25,6 +25,7 @@ class ProdutoDetalhes extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
+              clipBehavior: Clip.antiAlias,
               margin: const EdgeInsets.fromLTRB(20, 15, 20, 10),
               child: Image.network(
                 produto.image,

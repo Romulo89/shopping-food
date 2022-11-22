@@ -25,7 +25,6 @@ class _RestauranteListagemState extends State<RestauranteListagem> {
         actions: const [CarrinhoIcon()],
         automaticallyImplyLeading: false,
       ),
-      backgroundColor: const Color(0xFF595959),
       body: Center(
         child: FutureBuilder<List<Restaurante>>(
           future: widget.store
