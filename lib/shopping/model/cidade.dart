@@ -2,8 +2,10 @@ class Cidade {
   Cidade({
     required this.id,
     required this.nome,
+    this.shoppings = const [],
   });
 
-  int id;
+  String id;
   String nome;
+  List<String> shoppings;
 }
