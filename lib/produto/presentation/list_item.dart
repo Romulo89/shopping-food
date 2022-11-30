@@ -21,6 +21,7 @@ class ProdutoListItem extends StatelessWidget {
         },
       ),
       child: Card(
+        clipBehavior: Clip.antiAlias,
         margin: const EdgeInsets.all(7),
         child: Row(
           children: [
