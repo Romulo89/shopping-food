@@ -41,52 +41,52 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               const Spacer(),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(28),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      TextFormField(
-                        initialValue: usuario.login,
-                        validator: usuario.validateLogin,
-                        decoration: const InputDecoration(
-                          label: Text('Login'),
-                        ),
+              Padding(
+                padding: const EdgeInsets.all(28),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextFormField(
+                      initialValue: usuario.login,
+                      validator: usuario.validateLogin,
+                      decoration: const InputDecoration(
+                        label: Text('Login'),
                       ),
-                      TextFormField(
-                        obscureText: true,
-                        initialValue: usuario.senha,
-                        validator: usuario.validateSenha,
-                        decoration: const InputDecoration(
-                          label: Text('Senha'),
-                        ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextFormField(
+                      obscureText: true,
+                      initialValue: usuario.senha,
+                      validator: usuario.validateSenha,
+                      decoration: const InputDecoration(
+                        label: Text('Senha'),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              padding: const EdgeInsets.symmetric(vertical: 13),
-                            ),
-                            onPressed: verifyLogin,
-                            child: const Text('Login'),
+                    ),
+                    const SizedBox(height: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            padding: const EdgeInsets.symmetric(vertical: 13),
                           ),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey.shade900,
-                              padding: const EdgeInsets.symmetric(vertical: 13),
-                            ),
-                            onPressed: () => Navigator.of(context)
-                                .pushReplacementNamed(RegistrarTela.route),
-                            child: const Text('Registrar'),
+                          onPressed: verifyLogin,
+                          child: const Text('Login'),
+                        ),
+                        const SizedBox(height: 12),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey.shade900,
+                            padding: const EdgeInsets.symmetric(vertical: 13),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                          onPressed: () => Navigator.of(context)
+                              .pushNamed(RegistrarTela.route),
+                          child: const Text('Registrar'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
