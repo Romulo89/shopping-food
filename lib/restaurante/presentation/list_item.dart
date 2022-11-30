@@ -12,8 +12,11 @@ class ResaturanteListItem extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Container(
-          constraints: const BoxConstraints(maxHeight: 250),
-          child: Image.network(restaurante.image),
+          height: 150,
+          child: Image.network(
+            restaurante.image,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       onTap: () => Navigator.of(context).pushNamed(
