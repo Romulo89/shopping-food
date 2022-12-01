@@ -72,10 +72,16 @@ class MyApp extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15)),
             ),
             inputDecorationTheme: const InputDecorationTheme(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
               filled: true,
               fillColor: Colors.white,
               contentPadding: EdgeInsets.all(12),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 0),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
               border: OutlineInputBorder(
+                borderSide: BorderSide(width: 0),
                 borderRadius: BorderRadius.all(Radius.circular(15)),
               ),
             )),

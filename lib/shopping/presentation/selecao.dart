@@ -28,6 +28,9 @@ class _SelecaoShoppingState extends State<SelecaoShopping> {
 
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.titleLarge!.copyWith(
+          color: Colors.white70,
+        );
     provider = context.read<ShoppingProvider>();
     return Scaffold(
       appBar: AppBar(title: const Text('Shopping')),
@@ -40,6 +43,7 @@ class _SelecaoShoppingState extends State<SelecaoShopping> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Text('Selecionar uma Cidade', style: style),
               DropdownButtonFormField<Cidade>(
                 items: context.watch<ShoppingProvider>().cidades,
                 validator: (value) =>
@@ -59,6 +63,7 @@ class _SelecaoShoppingState extends State<SelecaoShopping> {
                   );
                 },
               ),
+              Text('Selecionar um Restaurante:', style: style),
               if (provider.shoppings.isEmpty)
                 const SizedBox(height: 1)
               else
